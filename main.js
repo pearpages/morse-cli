@@ -17,16 +17,42 @@ const letters = [
   },
   {
     e: pattern(".")
+  },
+  {
+    f: pattern("..-.")
   }
 ];
 
-shuffle(letters);
+const inverse = [
+  {
+    ".-": pattern("a")
+  },
+  {
+    "-...": pattern("b")
+  },
+  {
+    "-.-.": pattern("c")
+  },
+  {
+    "-..": pattern("d")
+  },
+  {
+    ".": pattern("e")
+  },
+  {
+    "..-.": pattern("f")
+  }
+];
+
+const mixed = [...letters, ...inverse];
+
+shuffle(mixed);
 
 const schema = {
   properties: {}
 };
 
-letters.forEach(l => (schema.properties = { ...schema.properties, ...l }));
+mixed.forEach(l => (schema.properties = { ...schema.properties, ...l }));
 
 prompt.start();
 prompt.get(schema, (_, res) => {
