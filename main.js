@@ -1,48 +1,6 @@
 const prompt = require("prompt");
 
-const pattern = value => ({ pattern: value });
-
-const letters = [
-  {
-    a: pattern(".-")
-  },
-  {
-    b: pattern("-...")
-  },
-  {
-    c: pattern("-.-.")
-  },
-  {
-    d: pattern("-..")
-  },
-  {
-    e: pattern(".")
-  },
-  {
-    f: pattern("..-.")
-  }
-];
-
-const inverse = [
-  {
-    ".-": pattern("a")
-  },
-  {
-    "-...": pattern("b")
-  },
-  {
-    "-.-.": pattern("c")
-  },
-  {
-    "-..": pattern("d")
-  },
-  {
-    ".": pattern("e")
-  },
-  {
-    "..-.": pattern("f")
-  }
-];
+const { letters, inverse } = require("./alphabet");
 
 const mixed = [...letters, ...inverse];
 
