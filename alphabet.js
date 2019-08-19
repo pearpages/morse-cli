@@ -1,4 +1,4 @@
-const pattern = value => ({ pattern: value });
+const pattern = value => ({ pattern: value, message: value, required: true });
 
 const letters = [
   {
@@ -21,6 +21,9 @@ const letters = [
   },
   {
     g: pattern("--.")
+  },
+  {
+    h: pattern("....")
   }
 ];
 
@@ -45,6 +48,9 @@ const inverse = [
   },
   {
     "--.": pattern("g")
+  },
+  {
+    "....": pattern("h")
   }
 ];
 
